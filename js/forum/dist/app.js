@@ -19857,7 +19857,10 @@ System.register('flarum/components/AvatarEditor', ['flarum/Component', 'flarum/h
             var user = this.props.user;
             var $input = $('<input type="file">');
 
-            $input.appendTo('body').hide().click().on('change', function (e) {
+            $input.appendTo('body').css({
+              position: 'fixed',
+              left: '100%',
+              width: '1px'}).click().on('change', function (e) {
               var data = new FormData();
               data.append('avatar', $(e.target)[0].files[0]);
 
