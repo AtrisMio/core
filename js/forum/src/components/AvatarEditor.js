@@ -107,7 +107,7 @@ export default class AvatarEditor extends Component {
     $input.appendTo('body').css({
       position: 'fixed',
       left: '100%',
-      width: '1px'}).click().on('change', e => {
+      width: '1px'}).on('change', e => {
       const data = new FormData();
       data.append('avatar', $(e.target)[0].files[0]);
 
@@ -123,7 +123,7 @@ export default class AvatarEditor extends Component {
         this.success.bind(this),
         this.failure.bind(this)
       );
-    });
+    }).get(0).click();
   }
 
   /**
