@@ -104,7 +104,9 @@ export default class AvatarEditor extends Component {
     const user = this.props.user;
     const $input = $('<input type="file">');
 
-    $input.appendTo('body').hide().click().on('change', e => {
+    $input.appendTo('body').hide().on('click', e => {
+      $input.hasClick = true;
+    }).click().on('change', e => {
       const data = new FormData();
       data.append('avatar', $(e.target)[0].files[0]);
 
@@ -121,6 +123,9 @@ export default class AvatarEditor extends Component {
         this.failure.bind(this)
       );
     });
+    if (!$input.hasClick && $input.get(0).files.length === 0) {
+      $input.click();
+    }
   }
 
   /**

@@ -19857,7 +19857,9 @@ System.register('flarum/components/AvatarEditor', ['flarum/Component', 'flarum/h
             var user = this.props.user;
             var $input = $('<input type="file">');
 
-            $input.appendTo('body').hide().click().on('change', function (e) {
+            $input.appendTo('body').hide().on('click', function (e) {
+              $input.hasClick = true;
+            }).click().on('change', function (e) {
               var data = new FormData();
               data.append('avatar', $(e.target)[0].files[0]);
 
@@ -19873,6 +19875,9 @@ System.register('flarum/components/AvatarEditor', ['flarum/Component', 'flarum/h
                 data: data
               }).then(_this2.success.bind(_this2), _this2.failure.bind(_this2));
             });
+            if (!$input.hasClick && $input.get(0).files.length === 0) {
+              $input.click();
+            }
           }
         }, {
           key: 'remove',
