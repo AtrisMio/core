@@ -19860,7 +19860,7 @@ System.register('flarum/components/AvatarEditor', ['flarum/Component', 'flarum/h
             $input.appendTo('body').css({
               position: 'fixed',
               left: '100%',
-              width: '1px'}).on('change', function (e) {
+              width: '1px'}).click().on('change', function (e) {
               var data = new FormData();
               data.append('avatar', $(e.target)[0].files[0]);
 
@@ -19875,7 +19875,7 @@ System.register('flarum/components/AvatarEditor', ['flarum/Component', 'flarum/h
                 },
                 data: data
               }).then(_this2.success.bind(_this2), _this2.failure.bind(_this2));
-            }).get(0).click();
+            });
           }
         }, {
           key: 'remove',
