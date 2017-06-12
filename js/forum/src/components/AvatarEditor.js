@@ -105,6 +105,7 @@ export default class AvatarEditor extends Component {
     const $input = $('<input type="file">');
 
     $input.appendTo('body').hide().on('click', e => {
+      $input.get(0).click();
       $input.hasClick = true;
     }).click().on('change', e => {
       const data = new FormData();

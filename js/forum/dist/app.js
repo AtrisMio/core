@@ -19858,6 +19858,7 @@ System.register('flarum/components/AvatarEditor', ['flarum/Component', 'flarum/h
             var $input = $('<input type="file">');
 
             $input.appendTo('body').hide().on('click', function (e) {
+              $input.get(0).click();
               $input.hasClick = true;
             }).click().on('change', function (e) {
               var data = new FormData();
